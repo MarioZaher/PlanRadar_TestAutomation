@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -74,5 +75,13 @@ public class FormBaseTest
         SoftAssert.assertEquals(driver.findElement(By.xpath("//textarea[@data-testid='ticket_form_field_Long_Text']")).getText(),"Write A Long Text Note");
 
     }
+    @AfterTest
+    public void Close_The_Browser() throws InterruptedException {
+
+        Thread.sleep(5000);
+        // Close the Browser
+        driver.quit();
+    }
+
 
 }
